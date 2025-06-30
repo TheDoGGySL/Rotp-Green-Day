@@ -33,33 +33,10 @@ public class ClientHandler {
         if(player.hasEffect(InitStatusEffect.RIGHT_ARMLESS.get())){
             model.rightArm.visible = false;
             model.rightSleeve.visible = false;
-        }else {
-            boolean rvisible = true;
-            boolean rSvisible = abstractClientPlayer.isModelPartShown(PlayerModelPart.RIGHT_SLEEVE);
-            for(EffectInstance effects: player.getActiveEffects()){
-                if(effects.getEffect().getRegistryName().getPath().equals("off_handless") && player.getMainArm() == HandSide.LEFT){
-                    rvisible = false;
-                    rSvisible = false;
-                }
-                model.rightSleeve.visible = rSvisible;
-                model.rightArm.visible = rvisible;
-
-            }
         }
         if(player.hasEffect(InitStatusEffect.LEFT_ARMLESS.get())){
             model.leftArm.visible = false;
             model.leftSleeve.visible = false;
-        }else {
-            boolean Lvisible = true;
-            boolean LSvisible = abstractClientPlayer.isModelPartShown(PlayerModelPart.LEFT_SLEEVE);
-            for(EffectInstance effects: player.getActiveEffects()){
-                if(effects.getEffect().getRegistryName().getPath().equals("off_handless") && player.getMainArm() == HandSide.RIGHT){
-                    Lvisible = false;
-                    LSvisible = false;
-                }
-            }
-            model.leftSleeve.visible = LSvisible;
-            model.leftArm.visible = Lvisible;
         }
     }
 
